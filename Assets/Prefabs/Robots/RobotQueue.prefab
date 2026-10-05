@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1020553693604491445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5228385344647639822}
+  - component: {fileID: 5989697229010778283}
+  m_Layer: 0
+  m_Name: RobotQueue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5228385344647639822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020553693604491445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.2362, y: -4.64309, z: -52.537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5989697229010778283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020553693604491445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ef198aa877d204cb7f050eba8380c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CC26.RobotQueue
+  robots:
+  - {fileID: 11400000, guid: 461d6c866d958d348b6751bb51b22e0c, type: 2}
+  - {fileID: 11400000, guid: 461d6c866d958d348b6751bb51b22e0c, type: 2}
+  - {fileID: 11400000, guid: 461d6c866d958d348b6751bb51b22e0c, type: 2}
+  - {fileID: 11400000, guid: 461d6c866d958d348b6751bb51b22e0c, type: 2}
+  spawnPoint: {fileID: 0}
+  failureAction: {fileID: -3235803641308220670, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  resetAction: {fileID: 9111769479998580104, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  spawnDelay: 0.75
+  outOfRobotsResetDelay: 1.5
+  followCamera: {fileID: 0}
+  iconContainer: {fileID: 0}
+  iconPrefab: {fileID: 7085887961145881896, guid: 46f865e2917505348a34988682d91867, type: 3}
+  upcomingColor: {r: 1, g: 1, b: 1, a: 0.6}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  usedColor: {r: 0.3, g: 0.3, b: 0.3, a: 0.6}
