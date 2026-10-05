@@ -9,6 +9,9 @@ namespace CC26
     {
         public event Action<Robot> Decommissioned;
 
+        [Tooltip("Layers whose IHazard components affect this robot.")]
+        [SerializeField] private LayerMask hazardLayers;
+
         public bool IsActive { get; private set; }
         public bool IsDecommissioned { get; private set; }
 
@@ -35,7 +38,27 @@ namespace CC26
             IsActive = false;
             IsDecommissioned = true;
             controller.HasControl = false;
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
             Decommissioned?.Invoke(this);
+        }
+
+        // Hazard death. Kills momentum, then falls and locks like a manual shutdown.
+        public void Break()
+        {
+            if (!IsActive) return;
+            rb.linearVelocity = Vector2.zero;
+            Decommission();
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision) => TryHazard(collision.collider);
+
+        private void OnTriggerEnter2D(Collider2D other) => TryHazard(other);
+
+        private void TryHazard(Collider2D other)
+        {
+            if (!IsActive || (hazardLayers & (1 << other.gameObject.layer)) == 0) return;
+            IHazard hazard = other.GetComponentInParent<IHazard>();
+            hazard?.Apply(this);
         }
 
         private void FixedUpdate()

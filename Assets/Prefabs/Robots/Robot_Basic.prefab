@@ -104,6 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289197d7546c91c43bf9ba6e694286a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CC26.Robot
+  hazardLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6855512821304262406
 GameObject:
   m_ObjectHideFlags: 0
