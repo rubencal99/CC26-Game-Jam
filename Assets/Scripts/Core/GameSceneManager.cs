@@ -16,9 +16,17 @@ namespace CC26
         [Tooltip("Disable in scenes that shouldn't pause, e.g. the main menu.")]
         [SerializeField] private bool canPause = true;
 
-        public bool IsPaused { get; private set; }
+        [Tooltip("Root of the level complete UI. Shown when an Exit is reached.")]
+        [SerializeField] private GameObject levelCompleteScreen;
 
-        private void Awake() => SetPaused(false);
+        public bool IsPaused { get; private set; }
+        public bool IsLevelComplete { get; private set; }
+
+        private void Awake()
+        {
+            SetPaused(false);
+            if (levelCompleteScreen != null) levelCompleteScreen.SetActive(false);
+        }
 
         private void OnEnable()
         {
@@ -40,6 +48,11 @@ namespace CC26
             SceneManager.LoadScene(sceneName);
         }
 
+        public void ReloadCurrentScene()
+        {
+            LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         public void Pause()
         {
             if (canPause) SetPaused(true);
@@ -49,6 +62,8 @@ namespace CC26
 
         public void TogglePause()
         {
+            // Esc must not resume past the complete screen
+            if (IsLevelComplete) return;
             if (IsPaused) Resume();
             else Pause();
         }
@@ -60,6 +75,16 @@ namespace CC26
 #else
             Application.Quit();
 #endif
+        }
+
+        // Freezes the level like pause. Leave via the screen's buttons (LoadScene, ReloadCurrentScene, Quit).
+        public void CompleteLevel()
+        {
+            if (IsLevelComplete) return;
+            SetPaused(false);
+            IsLevelComplete = true;
+            Time.timeScale = 0f;
+            if (levelCompleteScreen != null) levelCompleteScreen.SetActive(true);
         }
 
         private void OnPausePerformed(InputAction.CallbackContext _) => TogglePause();
