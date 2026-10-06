@@ -38,7 +38,8 @@ namespace CC26
             IsActive = false;
             IsDecommissioned = true;
             controller.HasControl = false;
-            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            // Freeze the robot's position when decommissioned.
+            //rb.constraints = RigidbodyConstraints2D.FreezePosition;
             Decommissioned?.Invoke(this);
         }
 
