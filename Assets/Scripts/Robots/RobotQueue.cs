@@ -11,7 +11,7 @@ namespace CC26
     // Spawns robots in order, hands control to one at a time, and soft resets the level.
     public class RobotQueue : MonoBehaviour
     {
-        // Obstacles will subscribe to restore their start state. Not raised on scene load.
+        // Obstacles will subscribe to restore their start state.
         public static event Action LevelReset;
 
         [Header("Robots")]
