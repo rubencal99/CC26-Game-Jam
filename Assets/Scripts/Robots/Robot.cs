@@ -12,6 +12,12 @@ namespace CC26
         [Tooltip("Layers whose IHazard components affect this robot.")]
         [SerializeField] private LayerMask hazardLayers;
 
+        [Header("Audio")]
+        [Tooltip("Played on manual shutdown (F).")]
+        [SerializeField] private AudioCueDefinition shutdownCue;
+        [Tooltip("Played when a hazard breaks the robot. Replaces the shutdown cue.")]
+        [SerializeField] private AudioCueDefinition breakCue;
+
         public bool IsActive { get; private set; }
         public bool IsDecommissioned { get; private set; }
 
@@ -35,12 +41,7 @@ namespace CC26
         public void Decommission()
         {
             if (!IsActive) return;
-            IsActive = false;
-            IsDecommissioned = true;
-            controller.HasControl = false;
-            // Freeze the robot's position when decommissioned.
-            //rb.constraints = RigidbodyConstraints2D.FreezePosition;
-            Decommissioned?.Invoke(this);
+            Shutdown(shutdownCue);
         }
 
         // Hazard death. Kills momentum, then falls and locks like a manual shutdown.
@@ -48,7 +49,18 @@ namespace CC26
         {
             if (!IsActive) return;
             rb.linearVelocity = Vector2.zero;
-            Decommission();
+            Shutdown(breakCue);
+        }
+
+        private void Shutdown(AudioCueDefinition cue)
+        {
+            AudioManager.Play(cue, transform.position);
+            IsActive = false;
+            IsDecommissioned = true;
+            controller.HasControl = false;
+            // Freeze the robot's position when decommissioned.
+            //rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            Decommissioned?.Invoke(this);
         }
 
         private void OnCollisionEnter2D(Collision2D collision) => TryHazard(collision.collider);
