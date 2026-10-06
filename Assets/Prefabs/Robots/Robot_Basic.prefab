@@ -92,6 +92,7 @@ MonoBehaviour:
     m_Bits: 192
   groundCheckDistance: 0.05
   minGroundNormalY: 0.7
+  jumpCue: {fileID: 11400000, guid: 2682a5e2f3bbbf745a1c81c929d81288, type: 2}
 --- !u!114 &3347990715169525357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +108,8 @@ MonoBehaviour:
   hazardLayers:
     serializedVersion: 2
     m_Bits: 256
+  shutdownCue: {fileID: 11400000, guid: 84ca1e52c9abcb049bcca910eafeaab2, type: 2}
+  breakCue: {fileID: 11400000, guid: 84ca1e52c9abcb049bcca910eafeaab2, type: 2}
 --- !u!1 &6855512821304262406
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,6 +47,10 @@ namespace CC26
         [Tooltip("Min surface normal Y that counts as ground. 0.7 is about 45 degrees.")]
         [SerializeField, Range(0f, 1f)] private float minGroundNormalY = 0.7f;
 
+        [Header("Audio")]
+        [Tooltip("Played when a jump starts.")]
+        [SerializeField] private AudioCueDefinition jumpCue;
+
         public bool IsGrounded { get; private set; }
 
         // Off = ignores input but keeps simulating gravity and deceleration
@@ -144,6 +148,7 @@ namespace CC26
                 currentVelocityY = gravity * timeToApex;
                 jumpBufferTimer = 0f;
                 coyoteTimer = 0f;
+                AudioManager.Play(jumpCue, transform.position);
             }
 
             float multiplier = 1f;
