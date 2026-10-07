@@ -6,6 +6,8 @@ namespace CC26
     [RequireComponent(typeof(Rigidbody2D))]
     public class Door : MonoBehaviour, IObstacle
     {
+        public enum ShakeMode { OnActivate, WhileMoving, WhileOpen }
+
         [Tooltip("Local position when closed.")]
         [SerializeField] private Vector3 closedPosition;
         [Tooltip("Local position when open.")]
@@ -15,7 +17,14 @@ namespace CC26
         [Tooltip("Seconds for a full open or close.")]
         [SerializeField] private float duration = 0.5f;
 
+        [Header("Camera Shake")]
+        [Tooltip("Optional. Shake played by this door.")]
+        [SerializeField] private CameraShakeDefinition shake;
+        [Tooltip("OnActivate: once per open or close. WhileMoving / WhileOpen: held at the shake's starting strength, then fades out normally.")]
+        [SerializeField] private ShakeMode shakeMode = ShakeMode.OnActivate;
+
         public bool IsOpen { get; private set; }
+        public bool IsMoving => !Mathf.Approximately(progress, IsOpen ? 1f : 0f);
 
         private Rigidbody2D rb;
         // 0 = closed, 1 = open. Reversing mid-move continues from here, so there is no snap.
@@ -38,15 +47,22 @@ namespace CC26
         {
             IsOpen = !IsOpen;
             Debug.Log("Door activated. IsOpen: " + IsOpen);
+            if (shakeMode == ShakeMode.OnActivate) CameraShake.Play(shake);
+        }
+
+        // Replaying restarts the shake at time 0 each frame, which holds it there until we stop
+        private void Update()
+        {
+            bool hold = shakeMode == ShakeMode.WhileMoving ? IsMoving : shakeMode == ShakeMode.WhileOpen && IsOpen;
+            if (hold) CameraShake.Play(shake);
         }
 
         // Kinematic MovePosition so robots get pushed or carried properly
         private void FixedUpdate()
         {
-            float target = IsOpen ? 1f : 0f;
-            if (Mathf.Approximately(progress, target)) return;
+            if (!IsMoving) return;
 
-            progress = Mathf.MoveTowards(progress, target, Time.fixedDeltaTime / Mathf.Max(duration, 0.0001f));
+            progress = Mathf.MoveTowards(progress, IsOpen ? 1f : 0f, Time.fixedDeltaTime / Mathf.Max(duration, 0.0001f));
             rb.MovePosition(ToWorld(Vector3.LerpUnclamped(closedPosition, openPosition, curve.Evaluate(progress))));
         }
 

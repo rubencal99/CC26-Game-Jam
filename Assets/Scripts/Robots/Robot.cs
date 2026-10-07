@@ -12,11 +12,15 @@ namespace CC26
         [Tooltip("Layers whose IHazard components affect this robot.")]
         [SerializeField] private LayerMask hazardLayers;
 
-        [Header("Audio")]
+        [Header("Feedback")]
         [Tooltip("Played on manual shutdown (F).")]
         [SerializeField] private AudioCueDefinition shutdownCue;
+        [Tooltip("Played on manual shutdown (F).")]
+        [SerializeField] private CameraShakeDefinition shutdownShake;
         [Tooltip("Played when a hazard breaks the robot. Replaces the shutdown cue.")]
         [SerializeField] private AudioCueDefinition breakCue;
+        [Tooltip("Played when a hazard breaks the robot. Replaces the shutdown shake.")]
+        [SerializeField] private CameraShakeDefinition breakShake;
 
         public bool IsActive { get; private set; }
         public bool IsDecommissioned { get; private set; }
@@ -41,7 +45,7 @@ namespace CC26
         public void Decommission()
         {
             if (!IsActive) return;
-            Shutdown(shutdownCue);
+            Shutdown(shutdownCue, shutdownShake);
         }
 
         // Hazard death. Kills momentum, then falls and locks like a manual shutdown.
@@ -49,12 +53,13 @@ namespace CC26
         {
             if (!IsActive) return;
             rb.linearVelocity = Vector2.zero;
-            Shutdown(breakCue);
+            Shutdown(breakCue, breakShake);
         }
 
-        private void Shutdown(AudioCueDefinition cue)
+        private void Shutdown(AudioCueDefinition cue, CameraShakeDefinition shake)
         {
             AudioManager.Play(cue, transform.position);
+            CameraShake.Play(shake);
             IsActive = false;
             IsDecommissioned = true;
             controller.HasControl = false;

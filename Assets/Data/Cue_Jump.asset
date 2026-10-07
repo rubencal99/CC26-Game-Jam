@@ -15,7 +15,7 @@ MonoBehaviour:
   m_clips:
   - {fileID: 8300000, guid: f910835fa073c0e4da11dacb8049d685, type: 3}
   m_avoidRepeat: 1
-  m_volume: {x: 0.9, y: 1}
+  m_volume: {x: 0.6, y: 0.7}
   m_pitch: {x: 0.95, y: 1.05}
   m_delay: {x: 0, y: 0}
   m_mixerGroup: {fileID: -1517831732281609067, guid: 5d81c451b76c96a418f82c63f791f60a, type: 2}

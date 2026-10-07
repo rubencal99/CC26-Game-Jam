@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dbcf0e5ec2a15f4aad6186db58f212f, type: 3}
-  m_Name: Robot_Basic
+  m_Name: Robot_Fire
   m_EditorClassIdentifier: Assembly-CSharp::CC26.RobotDefinition
-  prefab: {fileID: 3347990715169525357, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
-  icon: {fileID: -3128188892649724295, guid: b3a0c814d7992d346ab7da3cae98e655, type: 3}
+  prefab: {fileID: 8826330280150485684, guid: 827d0b6b43991fd4c8ab428fa0d1971d, type: 3}
+  icon: {fileID: -1608633013393665519, guid: 70d73e27a60dd1c4a8a2bad86f41bc89, type: 3}
