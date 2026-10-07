@@ -2,32 +2,54 @@ using UnityEngine;
 
 namespace CC26
 {
-    // Burns away after enough time in a flame. Comes back on level reset.
+    // Ignited by a flame, then dissolves over burnTime and burns away. Comes back on level reset.
     public class Burnable : MonoBehaviour
     {
-        [Tooltip("Seconds in the flame before it burns away. Not lost when the flame stops.")]
+        private static readonly int DissolveAmountId = Shader.PropertyToID("_DissolveAmount");
+
+        [Tooltip("Seconds from ignition until it burns away. Keeps counting after the flame stops.")]
         [SerializeField] private float burnTime = 1f;
         [Tooltip("Child with the sprite and collider. Hidden when burned. Must not be this object, or reset can't bring it back.")]
         [SerializeField] private GameObject body;
+        [Tooltip("Optional. Renderer with the dissolve material. _DissolveAmount goes 0 to 1 over Burn Time.")]
+        [SerializeField] private Renderer dissolveRenderer;
         [Tooltip("Optional. Played when it burns away.")]
         [SerializeField] private AudioCueDefinition burnCue;
         [Tooltip("Optional. Played when it burns away.")]
         [SerializeField] private CameraShakeDefinition burnShake;
 
+        public bool IsBurning { get; private set; }
         public bool IsBurned { get; private set; }
 
-        private float heat;
+        private float remaining;
+        // Per renderer, so crates sharing the material dissolve independently without material copies
+        private MaterialPropertyBlock block;
+
+        private void Awake() => block = new MaterialPropertyBlock();
 
         private void OnEnable() => RobotQueue.LevelReset += ResetBurnable;
 
         private void OnDisable() => RobotQueue.LevelReset -= ResetBurnable;
 
-        public void Burn(float seconds)
+        public void Ignite()
         {
-            if (IsBurned) return;
-            heat += seconds;
-            if (heat < burnTime) return;
+            if (IsBurning || IsBurned) return;
+            IsBurning = true;
+            remaining = burnTime;
+        }
 
+        private void Update()
+        {
+            if (!IsBurning) return;
+
+            remaining -= Time.deltaTime;
+            SetDissolve(1f - Mathf.Clamp01(remaining / burnTime));
+            if (remaining <= 0f) BurnAway();
+        }
+
+        private void BurnAway()
+        {
+            IsBurning = false;
             IsBurned = true;
             body.SetActive(false);
             AudioManager.Play(burnCue, transform.position);
@@ -36,9 +58,19 @@ namespace CC26
 
         private void ResetBurnable()
         {
+            IsBurning = false;
             IsBurned = false;
-            heat = 0f;
+            SetDissolve(0f);
             body.SetActive(true);
+        }
+
+        private void SetDissolve(float amount)
+        {
+            if (dissolveRenderer == null) return;
+            // Get first: SpriteRenderer keeps its sprite texture in the same block
+            dissolveRenderer.GetPropertyBlock(block);
+            block.SetFloat(DissolveAmountId, amount);
+            dissolveRenderer.SetPropertyBlock(block);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace CC26
 {
-    // Fire robot ability. Hold fire to root in place and burn any Burnable inside the flame box.
+    // Fire robot ability. Hold fire to root in place and ignite any Burnable inside the flame box.
     [RequireComponent(typeof(Robot))]
     public class Flamethrower : MonoBehaviour
     {
@@ -34,7 +34,6 @@ namespace CC26
         private PlayerController controller;
         private ContactFilter2D filter;
         private readonly List<Collider2D> hits = new();
-        private readonly List<Burnable> burned = new();
 
         private void Awake()
         {
@@ -59,15 +58,11 @@ namespace CC26
         {
             if (!IsFiring) return;
 
-            // One Burn per object per step, even with several colliders in the box
-            burned.Clear();
             int count = Physics2D.OverlapBox(flameOrigin.position, flameSize, 0f, filter, hits);
             for (int i = 0; i < count; i++)
             {
                 Burnable burnable = hits[i].GetComponentInParent<Burnable>();
-                if (burnable == null || burned.Contains(burnable)) continue;
-                burned.Add(burnable);
-                burnable.Burn(Time.fixedDeltaTime);
+                if (burnable != null) burnable.Ignite();
             }
         }
 

@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f794eed621cea024d8c9b9c9ed733246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CC26.Burnable
-  burnTime: 1
+  burnTime: 3
   body: {fileID: 5497167539258923285}
+  dissolveRenderer: {fileID: 2851990283515229531}
   burnCue: {fileID: 0}
   burnShake: {fileID: 0}
 --- !u!1 &5497167539258923285
@@ -108,7 +109,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2dff81d42f68a2246b944dc982ff7d69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
