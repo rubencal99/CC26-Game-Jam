@@ -103,10 +103,15 @@ MonoBehaviour:
   hazardLayers:
     serializedVersion: 2
     m_Bits: 256
+  immunities: 0
+  lockInPlace: 0
   shutdownCue: {fileID: 11400000, guid: 84ca1e52c9abcb049bcca910eafeaab2, type: 2}
   shutdownShake: {fileID: 11400000, guid: 59ab6647ee8cfd4408f3830b786875a3, type: 2}
   breakCue: {fileID: 11400000, guid: 84ca1e52c9abcb049bcca910eafeaab2, type: 2}
   breakShake: {fileID: 11400000, guid: 59ab6647ee8cfd4408f3830b786875a3, type: 2}
+  explodeEffect: {fileID: 7740481251276947050, guid: 0856b5a9963189d4bb90732ac9a1b26c, type: 3}
+  explodeCue: {fileID: 11400000, guid: f3c1626da25a78b43abe3498b6f62a6b, type: 2}
+  explodeShake: {fileID: 11400000, guid: 165b22cf8b4a9334089c69a92cda5add, type: 2}
 --- !u!114 &725987780482480666
 MonoBehaviour:
   m_ObjectHideFlags: 0

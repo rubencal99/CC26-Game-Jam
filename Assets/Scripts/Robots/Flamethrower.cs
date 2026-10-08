@@ -17,6 +17,8 @@ namespace CC26
         [Header("Flame")]
         [Tooltip("Center of the flame box. Child of the flipped visuals so it follows facing.")]
         [SerializeField] private Transform flameOrigin;
+        [Tooltip("Particle System used to represent the flame.")]
+        [SerializeField] private ParticleSystem flamePS;
         [Tooltip("Flame box width and height (units).")]
         [SerializeField] private Vector2 flameSize = new(2f, 0.6f);
         [Tooltip("Layers with Burnable objects.")]
@@ -72,10 +74,17 @@ namespace CC26
             IsFiring = firing;
             controller.IsRooted = firing;
             animator.SetBool(IsFlameThrowingParam, firing);
+            if (flamePS != null)
+            {
+                if (firing) flamePS.Play();
+                else flamePS.Stop();
+            }
 
-            if (flameSound == null) return;
-            if (firing) flameSound.Play();
-            else flameSound.Stop();
+            if (flameSound != null)
+            {
+                if (firing) flameSound.Play();
+                else flameSound.Stop();
+            }
         }
 
         private void OnDrawGizmosSelected()

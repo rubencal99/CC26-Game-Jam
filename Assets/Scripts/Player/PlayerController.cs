@@ -47,6 +47,9 @@ namespace CC26
         // On = move and jump input ignored, like HasControl off, but owned by abilities (e.g. flamethrower)
         public bool IsRooted { get; set; }
 
+        // On = no gravity or velocity changes; another component moves the body (e.g. MagneticMover). Ground check still runs.
+        public bool IsSuspended { get; set; }
+
         private Rigidbody2D rb;
         private ContactFilter2D groundFilter;
         private readonly RaycastHit2D[] groundHits = new RaycastHit2D[4];
@@ -96,6 +99,8 @@ namespace CC26
         {
             bool wasGrounded = IsGrounded;
             CheckGround();
+            if (IsSuspended) return;
+
             coyoteTimer = IsGrounded ? settings.coyoteTime : coyoteTimer - dt;
 
             // The solver has already zeroed velocity on the landing step, so use last step's

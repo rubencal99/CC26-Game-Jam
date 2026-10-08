@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbcf0e5ec2a15f4aad6186db58f212f, type: 3}
+  m_Name: Robot_Magnetic
+  m_EditorClassIdentifier: Assembly-CSharp::CC26.RobotDefinition
+  prefab: {fileID: 7238258212984153843, guid: 72b712af28867ca47aab9534dc7ea0e4, type: 3}
+  icon: {fileID: -1357009564, guid: fd6cb592190e4d0478872c048c13d0cc, type: 3}

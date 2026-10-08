@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace CC26
 {
@@ -11,10 +10,10 @@ namespace CC26
         [SerializeField] private GameObject[] targets;
         [Tooltip("Trigger collider just above the button top. Any robot inside holds it down.")]
         [SerializeField] private Collider2D pressZone;
-        [SerializeField] private Animator animator;
-        [Tooltip("Animator bool, true while held down.")]
-        [FormerlySerializedAs("pressTrigger")]
-        [SerializeField] private string pressedParam = "Pressed";
+        [Tooltip("Shows the pressed or unpressed sprite.")]
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Sprite unpressedSprite;
+        [SerializeField] private Sprite pressedSprite;
         [Tooltip("Optional. Played on press.")]
         [SerializeField] private AudioSource clickSound;
 
@@ -31,6 +30,7 @@ namespace CC26
                 obstacles.AddRange(target.GetComponents<IObstacle>());
             }
             filter = ContactFilter2D.noFilter;
+            SetSprite(false);
         }
 
         private void OnEnable() => RobotQueue.LevelReset += ResetButton;
@@ -44,7 +44,7 @@ namespace CC26
             if (pressed == IsPressed) return;
 
             IsPressed = pressed;
-            animator.SetBool(pressedParam, pressed);
+            SetSprite(pressed);
             if (pressed && clickSound != null) clickSound.Play();
             foreach (IObstacle obstacle in obstacles) obstacle.Activate();
         }
@@ -64,8 +64,9 @@ namespace CC26
         private void ResetButton()
         {
             IsPressed = false;
-            animator.Rebind();
-            animator.Update(0f);
+            SetSprite(false);
         }
+
+        private void SetSprite(bool pressed) => spriteRenderer.sprite = pressed ? pressedSprite : unpressedSprite;
     }
 }

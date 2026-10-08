@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CC26
 {
-    // Ignited by a flame, then dissolves over burnTime and burns away. Comes back on level reset.
+    // Ignited by a flame, then dissolves over burnTime and burns away. Can also be smashed instantly. Comes back on level reset.
     public class Burnable : MonoBehaviour
     {
         private static readonly int DissolveAmountId = Shader.PropertyToID("_DissolveAmount");
@@ -17,6 +17,12 @@ namespace CC26
         [SerializeField] private AudioCueDefinition burnCue;
         [Tooltip("Optional. Played when it burns away.")]
         [SerializeField] private CameraShakeDefinition burnShake;
+        [Tooltip("Optional. Spawned at the body when smashed, e.g. a splinter particle prefab. Should destroy itself.")]
+        [SerializeField] private GameObject smashEffect;
+        [Tooltip("Optional. Played when smashed.")]
+        [SerializeField] private AudioCueDefinition smashCue;
+        [Tooltip("Optional. Played when smashed.")]
+        [SerializeField] private CameraShakeDefinition smashShake;
 
         public bool IsBurning { get; private set; }
         public bool IsBurned { get; private set; }
@@ -36,6 +42,18 @@ namespace CC26
             if (IsBurning || IsBurned) return;
             IsBurning = true;
             remaining = burnTime;
+        }
+
+        // Instant break (Magnetic robot, blasts). Counts as burned, so reset restores it.
+        public void Smash()
+        {
+            if (IsBurned) return;
+            IsBurning = false;
+            IsBurned = true;
+            body.SetActive(false);
+            if (smashEffect != null) Instantiate(smashEffect, body.transform.position, Quaternion.identity);
+            AudioManager.Play(smashCue, transform.position);
+            CameraShake.Play(smashShake);
         }
 
         private void Update()

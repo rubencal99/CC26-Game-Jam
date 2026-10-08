@@ -85,7 +85,9 @@ namespace CC26
 
             foreach (Robot robot in spawned)
             {
-                if (robot != null) Destroy(robot.gameObject);
+                if (robot == null) continue;
+                robot.Explode();
+                Destroy(robot.gameObject);
             }
             spawned.Clear();
             ActiveRobot = null;
@@ -121,7 +123,7 @@ namespace CC26
             robot.Decommissioned -= OnDecommissioned;
             ActiveRobot = null;
             RefreshIcons();
-            pending = StartCoroutine(After(spawnDelay, SpawnNext));
+            pending = StartCoroutine(After(spawnDelay + robot.ExtraSpawnDelay, SpawnNext));
         }
 
         private void RefreshIcons()

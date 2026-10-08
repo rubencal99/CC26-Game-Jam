@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fdeb1ce926c034ebfb17d56f0d604b, type: 3}
+  m_Name: Cue_Explode_Simple
+  m_EditorClassIdentifier: Assembly-CSharp::AudioCueDefinition
+  m_clips:
+  - {fileID: 8300000, guid: b0c65d993f0c47e4abda13f14bad461a, type: 3}
+  m_avoidRepeat: 1
+  m_volume: {x: 0.75, y: 0.85}
+  m_pitch: {x: 1.3, y: 1.4}
+  m_delay: {x: 0, y: 0}
+  m_mixerGroup: {fileID: -1517831732281609067, guid: 5d81c451b76c96a418f82c63f791f60a, type: 2}
+  m_spatial: 0
+  m_distance: {x: 5, y: 25}
+  m_priority: 50
+  m_maxInstances: 4
+  m_minInterval: 0.03
