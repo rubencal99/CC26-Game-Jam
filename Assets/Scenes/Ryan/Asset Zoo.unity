@@ -834,7 +834,7 @@ Tilemap:
       - {fileID: -321725895, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
       - {fileID: 2105624494, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
       - {fileID: -2034847780, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
-      m_AnimationSpeed: 10.055479
+      m_AnimationSpeed: 10.241761
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 12, y: -6, z: 0}
@@ -856,7 +856,7 @@ Tilemap:
       - {fileID: -321725895, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
       - {fileID: 2105624494, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
       - {fileID: -2034847780, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
-      m_AnimationSpeed: 14.477074
+      m_AnimationSpeed: 13.602861
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 13, y: -6, z: 0}
@@ -878,7 +878,7 @@ Tilemap:
       - {fileID: -321725895, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
       - {fileID: 2105624494, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
       - {fileID: -2034847780, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
-      m_AnimationSpeed: 14.955467
+      m_AnimationSpeed: 12.417653
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: -6, z: 0}
@@ -900,7 +900,7 @@ Tilemap:
       - {fileID: -321725895, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
       - {fileID: 2105624494, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
       - {fileID: -2034847780, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
-      m_AnimationSpeed: 14.073941
+      m_AnimationSpeed: 11.50504
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -7724,18 +7724,6 @@ PrefabInstance:
       value: Fire Bot Sprites
       objectReference: {fileID: 0}
     - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
       objectReference: {fileID: 0}
@@ -7774,10 +7762,6 @@ PrefabInstance:
     - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

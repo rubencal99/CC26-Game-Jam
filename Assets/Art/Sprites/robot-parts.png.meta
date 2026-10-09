@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 23d44fdaa6edbcc4584fa932f8a58199
+guid: ab1043fe9def07b4cb93f9795c1d2277
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2029550291346247820
-    second: simple-bot-sheet_0
+      213: -3365443549635583961
+    second: robot-parts_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -74,7 +74,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: simple-bot-sheet_0
+      name: robot-parts_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 32
-        height: 32
+        y: 33
+        width: 16
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c80db79ac396a2c10800000000000000
-      internalID: 2029550291346247820
+      spriteID: 72067582cea8b41d0800000000000000
+      internalID: -3365443549635583961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_1
+      name: robot-parts_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
+        x: 19
+        y: 35
+        width: 11
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +165,152 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0a114f7c6306d94f8cd0e3d6fe84919
-      internalID: -1185092721
+      spriteID: 5fb57229c6064374babd5145fb277526
+      internalID: -209987307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_2
+      name: robot-parts_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 34
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c829e40326279ac41b3f037332cd504b
+      internalID: -1784039352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-parts_3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 35
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4adeb8ddfd0c7d248805d0622fb38cd0
+      internalID: 2071101225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-parts_4
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 32
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8343fb48c413e354c9c9349fba157a7b
+      internalID: 978222227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-parts_5
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 33
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751cc74a6ef24354588523d97ce5d0f5
+      internalID: 2004630651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-parts_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 20
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b30464ab4fe994dabbe21e55e81385
+      internalID: -497254449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-parts_7
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 6
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5135e7cdc38636b4fa247741895624fb
+      internalID: -939632586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-parts_8
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
-        width: 32
-        height: 32
+        y: 21
+        width: 5
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbfe79b0a4f534b46b191365b31c84bf
-      internalID: 1403728460
+      spriteID: ac047e8bfa7c1344ea617d208f283c63
+      internalID: 794452355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_3
+      name: robot-parts_9
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
+        x: 71
+        y: 21
+        width: 5
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +341,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec40104196177d348aa9a666d3c9d3aa
-      internalID: 352202178
+      spriteID: 135af2a7c03876145928b0801b506495
+      internalID: 1439225273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_4
+      name: robot-parts_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
+        x: 78
+        y: 20
+        width: 18
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +363,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 196075a21117bbb4e9720196da5db0d1
-      internalID: 1507615095
+      spriteID: 520eeded9cdf14e4181d90e674608d3e
+      internalID: 2029044914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_5
+      name: robot-parts_11
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 1
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,20 +385,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d53a3f1acbeed5545a9dad06b01fd722
-      internalID: -1478085985
+      spriteID: bce33ad248ea43a469b8eadbd969857f
+      internalID: 234892056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_6
+      name: robot-parts_12
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
+        x: 16
+        y: 9
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,20 +407,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcba6b2ba28b0cc4e9e1c4074a547d5b
-      internalID: -1447793769
+      spriteID: 18c30c9a3b1543f499197102e05d33d3
+      internalID: 2129070781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_7
+      name: robot-parts_13
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
+        x: 25
+        y: 9
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,108 +429,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80a41b65ac9a313488801785cf271fdd
-      internalID: -506345226
+      spriteID: b1aaea9a8f4b0544fa33ea502dcd0334
+      internalID: 1675388950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_8
+      name: robot-parts_14
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9131898c283486c45867b5117e2d0237
-      internalID: -110158367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: simple-bot-sheet_9
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 673341b27bf24ad469e6a49cef0f3b1d
-      internalID: 480628025
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: simple-bot-sheet_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b51335033e951f84a86dd59bff3981db
-      internalID: 1756481649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: simple-bot-sheet_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ba4f7f88e8619448a98875d31a9bd17
-      internalID: 468808889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: simple-bot-sheet_12
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 66
         y: 0
-        width: 32
-        height: 32
+        width: 13
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -407,20 +451,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d29276de22a596e4e9e1b857a289ee12
-      internalID: 793192343
+      spriteID: 730aa3796a2a369439e56a9c6831d57b
+      internalID: -2110730284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: simple-bot-sheet_13
+      name: robot-parts_15
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 83
+        y: 4
+        width: 11
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -429,8 +473,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5524fd7b8918f7248a3e054dc5e57495
-      internalID: 498370341
+      spriteID: a6bcb0d4b76acd04f989dd4f80cf96ad
+      internalID: -439496038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-parts_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94dce844adb1e634b97979558e6d769b
+      internalID: -578811856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-parts_17
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c039c7c0995fd043854154ad327e186
+      internalID: 1850184726
       vertices: []
       indices: 
       edges: []
@@ -439,7 +527,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eb6355994dd34d14fa6f649979f16584
+    spriteID: 0624857f98c1f1a4ea7be671f6ff0989
     internalID: 0
     vertices: []
     indices: 
@@ -449,22 +537,26 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      simple-bot-sheet_0: 2029550291346247820
-      simple-bot-sheet_1: -1185092721
-      simple-bot-sheet_10: 1756481649
-      simple-bot-sheet_11: 468808889
-      simple-bot-sheet_12: 793192343
-      simple-bot-sheet_13: 498370341
-      simple-bot-sheet_2: 1403728460
-      simple-bot-sheet_3: 352202178
-      simple-bot-sheet_4: 1507615095
-      simple-bot-sheet_5: -1478085985
-      simple-bot-sheet_6: -1447793769
-      simple-bot-sheet_7: -506345226
-      simple-bot-sheet_8: -110158367
-      simple-bot-sheet_9: 480628025
+      robot-parts_0: -3365443549635583961
+      robot-parts_1: -209987307
+      robot-parts_10: 2029044914
+      robot-parts_11: 234892056
+      robot-parts_12: 2129070781
+      robot-parts_13: 1675388950
+      robot-parts_14: -2110730284
+      robot-parts_15: -439496038
+      robot-parts_16: -578811856
+      robot-parts_17: 1850184726
+      robot-parts_2: -1784039352
+      robot-parts_3: 2071101225
+      robot-parts_4: 978222227
+      robot-parts_5: 2004630651
+      robot-parts_6: -497254449
+      robot-parts_7: -939632586
+      robot-parts_8: 794452355
+      robot-parts_9: 1439225273
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
