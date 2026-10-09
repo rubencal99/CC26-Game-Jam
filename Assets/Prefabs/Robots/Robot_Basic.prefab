@@ -86,8 +86,9 @@ MonoBehaviour:
   minGroundNormalY: 0.7
   jumpCue: {fileID: 11400000, guid: 2682a5e2f3bbbf745a1c81c929d81288, type: 2}
   jumpShake: {fileID: 11400000, guid: 59ab6647ee8cfd4408f3830b786875a3, type: 2}
+  landCue: {fileID: 11400000, guid: 56f34791419a2ef45904e1a633709f37, type: 2}
   landShake: {fileID: 11400000, guid: 59ab6647ee8cfd4408f3830b786875a3, type: 2}
-  minLandShakeSpeed: 6
+  minLandSpeed: 6
 --- !u!114 &3347990715169525357
 MonoBehaviour:
   m_ObjectHideFlags: 0

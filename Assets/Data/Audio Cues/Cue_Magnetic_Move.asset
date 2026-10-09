@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8fdeb1ce926c034ebfb17d56f0d604b, type: 3}
-  m_Name: Cue_Shutdown
+  m_Name: Cue_Magnetic_Move
   m_EditorClassIdentifier: Assembly-CSharp::AudioCueDefinition
   m_clips:
-  - {fileID: 8300000, guid: f654e014200f87f49bd85cb8abd4f574, type: 3}
-  - {fileID: 8300000, guid: d77c387937a97b240abc73203881ce6d, type: 3}
+  - {fileID: 8300000, guid: 796418b485a6b6440a9ee716d340f57a, type: 3}
   m_avoidRepeat: 1
-  m_volume: {x: 0.9, y: 1}
+  m_volume: {x: 0.6, y: 0.7}
   m_pitch: {x: 0.95, y: 1.05}
   m_delay: {x: 0, y: 0}
   m_mixerGroup: {fileID: -1517831732281609067, guid: 5d81c451b76c96a418f82c63f791f60a, type: 2}

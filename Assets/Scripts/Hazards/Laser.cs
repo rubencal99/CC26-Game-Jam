@@ -17,6 +17,12 @@ namespace CC26
         [Tooltip("Optional. Moved to the beam end and shown only when the beam hits something, e.g. sparks.")]
         [SerializeField] private Transform impact;
 
+        [Header("Audio")]
+        [Tooltip("Optional looping AudioSource on the emitter, e.g. a hum. Plays while the laser is enabled.")]
+        [SerializeField] private AudioSource ambientSound;
+        [Tooltip("Optional looping spatial AudioSource, e.g. sparks. Moved to the beam end; plays only while the beam hits something.")]
+        [SerializeField] private AudioSource impactSound;
+
         private ContactFilter2D filter;
         private readonly List<RaycastHit2D> hits = new();
         private float length;
@@ -29,6 +35,17 @@ namespace CC26
             filter.SetLayerMask(blockingLayers);
             beam.useWorldSpace = true;
             beam.positionCount = 2;
+        }
+
+        private void OnEnable()
+        {
+            if (ambientSound != null) ambientSound.Play();
+        }
+
+        private void OnDisable()
+        {
+            if (ambientSound != null) ambientSound.Stop();
+            if (impactSound != null) impactSound.Stop();
         }
 
         public void Apply(Robot robot)
@@ -63,9 +80,18 @@ namespace CC26
             beam.SetPosition(0, start);
             beam.SetPosition(1, end);
 
-            if (impact == null) return;
-            impact.position = end;
-            if (impact.gameObject.activeSelf != hasHit) impact.gameObject.SetActive(hasHit);
+            if (impact != null)
+            {
+                impact.position = end;
+                if (impact.gameObject.activeSelf != hasHit) impact.gameObject.SetActive(hasHit);
+            }
+
+            if (impactSound != null)
+            {
+                impactSound.transform.position = end;
+                if (hasHit && !impactSound.isPlaying) impactSound.Play();
+                else if (!hasHit && impactSound.isPlaying) impactSound.Stop();
+            }
         }
 
         private void OnDrawGizmosSelected()

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace CC26
 {
@@ -31,10 +32,13 @@ namespace CC26
         [SerializeField] private AudioCueDefinition jumpCue;
         [Tooltip("Played when a jump starts.")]
         [SerializeField] private CameraShakeDefinition jumpShake;
-        [Tooltip("Played on landing while controlled, if falling at least Min Land Shake Speed.")]
+        [Tooltip("Played on landing while controlled, if falling at least Min Land Speed.")]
+        [SerializeField] private AudioCueDefinition landCue;
+        [Tooltip("Played on landing while controlled, if falling at least Min Land Speed.")]
         [SerializeField] private CameraShakeDefinition landShake;
-        [Tooltip("Fall speed needed for the land shake (units/s). Filters out small drops.")]
-        [SerializeField] private float minLandShakeSpeed = 6f;
+        [Tooltip("Fall speed needed for the land cue and shake (units/s). Filters out small drops.")]
+        [FormerlySerializedAs("minLandShakeSpeed")]
+        [SerializeField] private float minLandSpeed = 6f;
 
         public event Action Jumped;
 
@@ -104,8 +108,9 @@ namespace CC26
             coyoteTimer = IsGrounded ? settings.coyoteTime : coyoteTimer - dt;
 
             // The solver has already zeroed velocity on the landing step, so use last step's
-            if (IsGrounded && !wasGrounded && HasControl && -lastVelocityY >= minLandShakeSpeed)
+            if (IsGrounded && !wasGrounded && HasControl && -lastVelocityY >= minLandSpeed)
             {
+                AudioManager.Play(landCue, transform.position);
                 CameraShake.Play(landShake);
             }
 

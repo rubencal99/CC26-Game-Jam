@@ -28,6 +28,8 @@ namespace CC26
         [Header("Feedback")]
         [Tooltip("Optional. Played when armed, e.g. a countdown beep.")]
         [SerializeField] private AudioCueDefinition armCue;
+        [Tooltip("Optional looping AudioSource, played from arming until the blast, e.g. a sizzling fuse.")]
+        [SerializeField] private AudioSource fuseSound;
         [Tooltip("Optional. Spawned at the robot on blast, e.g. a fireball particle prefab. Should destroy itself.")]
         [SerializeField] private GameObject blastEffect;
         [Tooltip("Optional. Played on blast, on top of the robot's explode feedback.")]
@@ -60,6 +62,7 @@ namespace CC26
             robot.Decommission(fuseTime + lingerTime);
             animator.SetTrigger(SelfDestructParam);
             AudioManager.Play(armCue, transform.position);
+            if (fuseSound != null) fuseSound.Play();
             StartCoroutine(Fuse());
         }
 
@@ -71,6 +74,8 @@ namespace CC26
 
         private void Blast()
         {
+            if (fuseSound != null) fuseSound.Stop();
+
             Vector2 center = transform.position;
             if (blastEffect != null) Instantiate(blastEffect, center, Quaternion.identity);
             AudioManager.Play(blastCue, center);

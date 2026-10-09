@@ -390,7 +390,7 @@ PrefabInstance:
     - target: {fileID: 3347990715169525357, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: explodeEffect
       value: 
-      objectReference: {fileID: 7740481251276947050, guid: 52c6195aee8868b4ab1b28022bee863b, type: 3}
+      objectReference: {fileID: 7740481251276947050, guid: 0856b5a9963189d4bb90732ac9a1b26c, type: 3}
     - target: {fileID: 4196444316772994780, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Name
       value: Robot_Fire
@@ -506,7 +506,8 @@ MonoBehaviour:
   explosionTime: 0.82
   lingerTime: 1.5
   blastRadius: 3.35
-  armCue: {fileID: 11400000, guid: 84ca1e52c9abcb049bcca910eafeaab2, type: 2}
+  armCue: {fileID: 11400000, guid: 3365fd19b14e71b4d935018829a073f5, type: 2}
+  fuseSound: {fileID: 0}
   blastEffect: {fileID: 0}
   blastCue: {fileID: 11400000, guid: e8aad2cfcffb11e4d9598ac03d7673ab, type: 2}
   blastShake: {fileID: 11400000, guid: 165b22cf8b4a9334089c69a92cda5add, type: 2}

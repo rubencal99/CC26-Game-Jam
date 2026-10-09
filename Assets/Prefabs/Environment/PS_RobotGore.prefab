@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2521906903453262317}
   - component: {fileID: 2740409111219881109}
   - component: {fileID: 7189856027020892906}
+  - component: {fileID: 5166490905328182437}
   m_Layer: 0
   m_Name: PS_RobotGore
   m_TagString: Untagged
@@ -494,7 +495,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 3
         minMaxState: 0
-        scalar: 20
+        scalar: 6
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -784,11 +785,29 @@ ParticleSystem:
     startFrame:
       serializedVersion: 3
       minMaxState: 3
-      scalar: 0
+      scalar: 0.9999
       minScalar: 0
       maxCurve:
         serializedVersion: 2
-        m_Curve: []
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -807,7 +826,9 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -1440505281, guid: 4ae2ccf01a85b364da21386682eb8574, type: 3}
+    - sprite: {fileID: 333079627128336787, guid: 77d71f83cd7ff334884d97f134522ef4, type: 3}
+    - sprite: {fileID: -620376203, guid: 77d71f83cd7ff334884d97f134522ef4, type: 3}
+    - sprite: {fileID: 1564324108, guid: 77d71f83cd7ff334884d97f134522ef4, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -2428,3 +2449,16 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &5166490905328182437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740481251276947050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c347dfdda3737947ac545a460b1ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CC26.ParticleOverlapCleanup
+  minDepth: 0.05
