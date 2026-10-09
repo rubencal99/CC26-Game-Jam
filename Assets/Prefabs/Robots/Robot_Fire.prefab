@@ -206,23 +206,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.7300854
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.7300854
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.7300854
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.42823473
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15493427
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalPosition.z
@@ -258,6 +258,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3581162439860360049, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581162439860360049, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
+      propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3581162439860360049, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
@@ -339,6 +343,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 3575017968245147204}
+    - target: {fileID: 725987780482480666, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 733177563391183613, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Size.x
       value: 1.1012363
@@ -356,9 +364,21 @@ PrefabInstance:
       value: -0.03398156
       objectReference: {fileID: 0}
     - target: {fileID: 3347990715169525357, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+      propertyPath: friedBy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347990715169525357, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3575017968245147204}
+    - target: {fileID: 3347990715169525357, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: explodeCue
       value: 
       objectReference: {fileID: 11400000, guid: e8aad2cfcffb11e4d9598ac03d7673ab, type: 2}
+    - target: {fileID: 3347990715169525357, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+      propertyPath: explodeEffect
+      value: 
+      objectReference: {fileID: 7740481251276947050, guid: 52c6195aee8868b4ab1b28022bee863b, type: 3}
     - target: {fileID: 4196444316772994780, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Name
       value: Robot_Fire
@@ -470,7 +490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CC26.SelfDestruct
   selfDestructAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   animator: {fileID: 3575017968245147204}
-  fuseTime: 1.5
+  fuseTime: 0.18
+  explosionTime: 0.82
   lingerTime: 1.5
   blastRadius: 10
   armCue: {fileID: 11400000, guid: 84ca1e52c9abcb049bcca910eafeaab2, type: 2}

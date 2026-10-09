@@ -16,8 +16,10 @@ namespace CC26
         [SerializeField] private Animator animator;
 
         [Header("Blast")]
-        [Tooltip("Seconds from arming to the blast. Match the countdown animation.")]
+        [Tooltip("Seconds from arming to the blast. Match the boom frame of the self-destruct clip.")]
         [SerializeField] private float fuseTime = 1.5f;
+        [Tooltip("Seconds the robot stays visible after the blast, so the self-destruct clip can finish.")]
+        [SerializeField] private float explosionTime;
         [Tooltip("Seconds the camera holds on the blast before the queue's spawn delay starts.")]
         [SerializeField] private float lingerTime = 1.5f;
         [Tooltip("Blast radius (units). Breakable walls, crates, and dead robots touching it explode.")]
@@ -90,8 +92,7 @@ namespace CC26
                 if (body != null && body.TryGetComponent(out Robot other) && other != robot && other.IsDecommissioned) other.Explode();
             }
 
-            // Last, since it hides this object
-            robot.Explode();
+            robot.Explode(explosionTime);
         }
 
         private void OnDrawGizmosSelected()

@@ -7,7 +7,7 @@ namespace CC26
     {
         public void Apply(Robot robot)
         {
-            if (!robot.IsImmuneTo(HazardType.Spikes)) robot.Break();
+            robot.Break(HazardType.Spikes);
         }
     }
 }

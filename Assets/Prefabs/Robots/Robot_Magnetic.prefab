@@ -36,6 +36,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.001121819
       objectReference: {fileID: 0}
+    - target: {fileID: 3163496766914230316, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ea5e0f3cc5d4584478d62326b01d9c30, type: 2}
+    - target: {fileID: 3347990715169525357, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+      propertyPath: friedBy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3347990715169525357, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: immunities
       value: 2
@@ -55,18 +63,22 @@ PrefabInstance:
     - target: {fileID: 6959838668531638657, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 7884925344922422708, guid: f303ac3a7f3dfaa4a8a46f493cdc6e5e, type: 3}
     - target: {fileID: 6959838668531638657, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Color.b
-      value: 0.11320752
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6959838668531638657, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Color.g
-      value: 0.11320752
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6959838668531638657, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Color.r
-      value: 0.11320752
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959838668531638657, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8416526328944936811, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -108,8 +120,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3163496766914230316, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -120,6 +131,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1138684706004588255}
   m_SourcePrefab: {fileID: 100100000, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+--- !u!95 &7053755374163316914 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3163496766914230316, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
+  m_PrefabInstance: {fileID: 5333676684552251550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8086711694328538690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4196444316772994780, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
@@ -176,6 +192,7 @@ MonoBehaviour:
   moveAction: {fileID: -3406871420374580256, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   speed: 20
   dropOnSpawn: 1
+  animator: {fileID: 7053755374163316914}
   launchCue: {fileID: 11400000, guid: 2682a5e2f3bbbf745a1c81c929d81288, type: 2}
   impactCue: {fileID: 0}
   impactShake: {fileID: 11400000, guid: 59ab6647ee8cfd4408f3830b786875a3, type: 2}

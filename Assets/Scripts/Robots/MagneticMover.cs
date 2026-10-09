@@ -11,12 +11,18 @@ namespace CC26
         // Gap that counts as touching (units). Above the 2D contact offset.
         private const float ContactDistance = 0.05f;
 
+        private static readonly int MoveXParam = Animator.StringToHash("MoveX");
+        private static readonly int MoveYParam = Animator.StringToHash("MoveY");
+        private static readonly int IsMovingParam = Animator.StringToHash("IsMoving");
+
         [Tooltip("Vector2 move action (Player/Move). Needs up and down bindings.")]
         [SerializeField] private InputActionReference moveAction;
         [Tooltip("Slide speed (units/s).")]
         [SerializeField] private float speed = 20f;
         [Tooltip("Slide down on spawn, so it doesn't hover at the spawn point.")]
         [SerializeField] private bool dropOnSpawn = true;
+        [Tooltip("Animator on the sprites child. Move blend tree reads MoveX / MoveY.")]
+        [SerializeField] private Animator animator;
 
         [Header("Feedback")]
         [Tooltip("Played when a slide starts.")]
@@ -49,7 +55,13 @@ namespace CC26
             filter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         }
 
-        private void OnEnable() => moveAction.action.Enable();
+        private void OnEnable()
+        {
+            moveAction.action.Enable();
+            robot.Decommissioned += OnDecommissioned;
+        }
+
+        private void OnDisable() => robot.Decommissioned -= OnDecommissioned;
 
         private void Start()
         {
@@ -111,6 +123,9 @@ namespace CC26
             // Freeze the other axis so the slide stays straight
             rb.constraints = RigidbodyConstraints2D.FreezeRotation |
                 (dir.x != 0f ? RigidbodyConstraints2D.FreezePositionY : RigidbodyConstraints2D.FreezePositionX);
+            animator.SetFloat(MoveXParam, dir.x);
+            animator.SetFloat(MoveYParam, dir.y);
+            animator.SetBool(IsMovingParam, true);
             AudioManager.Play(launchCue, transform.position);
         }
 
@@ -120,9 +135,13 @@ namespace CC26
             rb.linearVelocity = Vector2.zero;
             // Frozen so other robots can stand on it without pushing it
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            animator.SetBool(IsMovingParam, false);
             AudioManager.Play(impactCue, transform.position);
             CameraShake.Play(impactShake);
         }
+
+        // Shutdown mid-slide locks the body where it is. Death and fried anims belong to Robot.
+        private void OnDecommissioned(Robot _) => animator.SetBool(IsMovingParam, false);
 
         private static Vector2 Snap(Vector2 v)
         {
