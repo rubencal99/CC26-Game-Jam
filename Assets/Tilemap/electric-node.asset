@@ -12,9 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: electric-node
   m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
-  m_AnimatedSprites: []
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_AnimatedSprites:
+  - {fileID: -4527455720189124269, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: -1959613699, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: 1838226038, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: 362580964, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: -2052563548, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: -2134372094, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: 1537380765, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: 449987742, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: 615835942, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: -1784371375, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: -929473744, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: 1762381641, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: -321725895, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: 2105624494, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  - {fileID: -2034847780, guid: d4fda94fedd0d494c86520bcb50eb2b2, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 15
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0
