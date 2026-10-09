@@ -33,7 +33,7 @@ namespace CC26
 
         public void Apply(Robot robot)
         {
-            if (!robot.IsImmuneTo(HazardType.Laser)) robot.Break();
+            robot.Break(HazardType.Laser);
         }
 
         private void FixedUpdate()

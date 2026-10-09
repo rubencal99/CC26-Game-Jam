@@ -1,18 +1,30 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace CC26
 {
-    // Robot root. Owned by RobotQueue. Once decommissioned it falls (unless lockInPlace), then locks in place as a static platform.
+    // Robot root. Owned by RobotQueue. Shut down (F): falls (unless lockInPlace), then locks as a static platform.
+    // Hazard hit: fried (locks where it is, stays as a platform) or destroyed (death animation, then gone), per hazard type.
     [RequireComponent(typeof(PlayerController))]
     public class Robot : MonoBehaviour
     {
+        private static readonly int FriedTriggerParam = Animator.StringToHash("FriedTrigger");
+        private static readonly int DeathTriggerParam = Animator.StringToHash("DeathTrigger");
+
         public event Action<Robot> Decommissioned;
+
+        [Tooltip("Animator on the sprites child. Gets FriedTrigger and DeathTrigger. Empty = first Animator in children.")]
+        [SerializeField] private Animator animator;
 
         [Tooltip("Layers whose IHazard components affect this robot.")]
         [SerializeField] private LayerMask hazardLayers;
         [Tooltip("Hazards that don't affect this robot.")]
         [SerializeField] private HazardType immunities;
+        [Tooltip("Hazards that fry this robot: it locks where it is and stays as a platform. Any other hazard destroys it.")]
+        [SerializeField] private HazardType friedBy;
+        [Tooltip("Seconds the death animation plays before a destroyed robot disappears. Match the Death clip.")]
+        [SerializeField] private float deathTime = 0.33f;
         [Tooltip("Lock where it is when decommissioned instead of falling first. For the Magnetic robot.")]
         [SerializeField] private bool lockInPlace;
 
@@ -21,11 +33,11 @@ namespace CC26
         [SerializeField] private AudioCueDefinition shutdownCue;
         [Tooltip("Played on manual shutdown (F).")]
         [SerializeField] private CameraShakeDefinition shutdownShake;
-        [Tooltip("Played when a hazard breaks the robot. Replaces the shutdown cue.")]
+        [Tooltip("Played when a hazard fries the robot. Replaces the shutdown cue.")]
         [SerializeField] private AudioCueDefinition breakCue;
-        [Tooltip("Played when a hazard breaks the robot. Replaces the shutdown shake.")]
+        [Tooltip("Played when a hazard fries the robot. Replaces the shutdown shake.")]
         [SerializeField] private CameraShakeDefinition breakShake;
-        [Tooltip("Optional. Spawned by Explode() (level reset, blasts), e.g. a gore particle prefab. Should destroy itself.")]
+        [Tooltip("Optional. Spawned by Explode() (hazard death, self-destruct, level reset, blasts), e.g. a gore particle prefab. Should destroy itself.")]
         [SerializeField] private GameObject explodeEffect;
         [Tooltip("Played by Explode().")]
         [SerializeField] private AudioCueDefinition explodeCue;
@@ -46,6 +58,8 @@ namespace CC26
         {
             controller = GetComponent<PlayerController>();
             rb = GetComponent<Rigidbody2D>();
+            // Variants swap the sprites child, which would break an inherited reference
+            if (animator == null) animator = GetComponentInChildren<Animator>();
             controller.HasControl = false;
         }
 
@@ -69,12 +83,18 @@ namespace CC26
             Shutdown(null, null);
         }
 
-        // Hazard death. Kills momentum, then falls and locks like a manual shutdown.
-        public void Break()
+        // Hazard hit. Both outcomes lock on the spot: a fried body stays, a destroyed one explodes and vanishes after its death animation.
+        public void Break(HazardType type)
         {
-            if (!IsActive) return;
-            rb.linearVelocity = Vector2.zero;
-            Shutdown(breakCue, breakShake);
+            if (!IsActive || IsImmuneTo(type)) return;
+            bool fried = (friedBy & type) != 0;
+            if (fried) Shutdown(breakCue, breakShake);
+            else Shutdown(null, null);
+            Lock();
+
+            if (animator != null) animator.SetTrigger(fried ? FriedTriggerParam : DeathTriggerParam);
+            // Death clips burst on their first frame, so the gore goes with them
+            if (!fried) Explode(deathTime);
         }
 
         private void Shutdown(AudioCueDefinition cue, CameraShakeDefinition shake)
@@ -91,17 +111,27 @@ namespace CC26
 
         public bool IsImmuneTo(HazardType type) => (immunities & type) != 0;
 
-        // Bursts into parts and disappears. Called on level reset and by blasts. Safe to call more than once.
-        public void Explode()
+        // Bursts into parts now, then disappears after hideDelay so an explosion clip on the sprite can finish. Safe to call more than once.
+        public void Explode(float hideDelay = 0f)
         {
             if (HasExploded) return;
             HasExploded = true;
             if (explodeEffect != null) Instantiate(explodeEffect, transform.position, Quaternion.identity);
             AudioManager.Play(explodeCue, transform.position);
             CameraShake.Play(explodeShake);
-            // Hidden, not destroyed: the queue still owns it, and the camera holds on its last position
-            gameObject.SetActive(false);
+
+            if (hideDelay > 0f) StartCoroutine(HideAfter(hideDelay));
+            else Hide();
         }
+
+        private IEnumerator HideAfter(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            Hide();
+        }
+
+        // Hidden, not destroyed: the queue still owns it, and the camera holds on its last position
+        private void Hide() => gameObject.SetActive(false);
 
         private void OnCollisionEnter2D(Collision2D collision) => TryHazard(collision.collider);
 
