@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 6959838668531638657, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7884925344922422708, guid: f303ac3a7f3dfaa4a8a46f493cdc6e5e, type: 3}
+      objectReference: {fileID: 7211998231923394542, guid: d0edd05a4512f2a4eaaf49ba679c9e9e, type: 3}
     - target: {fileID: 6959838668531638657, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -82,11 +82,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8416526328944936811, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.12
       objectReference: {fileID: 0}
     - target: {fileID: 8416526328944936811, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 8416526328944936811, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -176,7 +176,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.15
+  m_Radius: 0.64
 --- !u!114 &1138684706004588255
 MonoBehaviour:
   m_ObjectHideFlags: 0

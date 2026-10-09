@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1397020396601085481}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.749, y: -0.15, z: 0}
+  m_LocalPosition: {x: 1.308, y: -0.243, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142,6 +142,18 @@ PrefabInstance:
       value: Fire Bot Sprites
       objectReference: {fileID: 0}
     - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636008318862965521, guid: eabc3fb17703a124e93601fae03771c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -206,23 +218,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.69358
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.69358
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.69358
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.13
+      value: 0.595
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.49
+      value: -0.231
       objectReference: {fileID: 0}
     - target: {fileID: 833908322312228680, guid: 3c556b0a2274f864dac6b90fb0215327, type: 3}
       propertyPath: m_LocalPosition.z
@@ -385,11 +397,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8416526328944936811, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.3
+      value: 20.601645
       objectReference: {fileID: 0}
     - target: {fileID: 8416526328944936811, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.92
+      value: -5.05
       objectReference: {fileID: 0}
     - target: {fileID: 8416526328944936811, guid: 616bdc27e5bab5c418fa970e16ff78e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -470,7 +482,7 @@ MonoBehaviour:
   animator: {fileID: 3575017968245147204}
   flameOrigin: {fileID: 8571704254670121760}
   flamePS: {fileID: 1579561676993271153}
-  flameSize: {x: 2, y: 0.6}
+  flameSize: {x: 4.29, y: 1.79}
   burnableLayers:
     serializedVersion: 2
     m_Bits: 512
@@ -493,7 +505,7 @@ MonoBehaviour:
   fuseTime: 0.18
   explosionTime: 0.82
   lingerTime: 1.5
-  blastRadius: 10
+  blastRadius: 3.35
   armCue: {fileID: 11400000, guid: 84ca1e52c9abcb049bcca910eafeaab2, type: 2}
   blastEffect: {fileID: 0}
   blastCue: {fileID: 11400000, guid: e8aad2cfcffb11e4d9598ac03d7673ab, type: 2}
