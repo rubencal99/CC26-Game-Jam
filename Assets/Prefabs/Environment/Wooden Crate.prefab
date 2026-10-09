@@ -50,6 +50,9 @@ MonoBehaviour:
   dissolveRenderer: {fileID: 2851990283515229531}
   burnCue: {fileID: 0}
   burnShake: {fileID: 0}
+  smashEffect: {fileID: 7740481251276947050, guid: 451afeb8d06b8d2428c188c9a656c91f, type: 3}
+  smashCue: {fileID: 0}
+  smashShake: {fileID: 11400000, guid: 59ab6647ee8cfd4408f3830b786875a3, type: 2}
 --- !u!1 &5497167539258923285
 GameObject:
   m_ObjectHideFlags: 0
